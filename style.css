@@ -1,0 +1,114 @@
+// --- Efecto máquina de escribir ---
+const text = "💖 Bienvenid@ a mi Portafolio 💖";
+let i = 0;
+function typeWriter() {
+  if (i < text.length) {
+    document.getElementById("typewriter").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 100);
+  }
+}
+typeWriter();
+
+// --- Mostrar/ocultar secciones ---
+function mostrarSeccion(id) {
+  const secciones = document.querySelectorAll(".seccion");
+
+  secciones.forEach(sec => {
+    if (sec.id === id) {
+      sec.classList.add("activa");
+    } else {
+      sec.classList.remove("activa");
+    }
+  });
+}
+
+// --- Botón modo oscuro ---
+document.getElementById("toggle-dark").addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  const btn = document.getElementById("toggle-dark");
+  btn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+});
+
+// --- Botón sorpresa ---
+function sorpresa() {
+  alert("✨💖 BLACKPINK in your area! 💖✨");
+}
+
+// --- Formulario ---
+document.querySelector("form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  alert("¡Gracias por tu mensaje! 💌✨");
+});
+
+// --- Estrellas animadas ---
+const canvas = document.getElementById("estrellas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let estrellas = [];
+
+function crearEstrellas() {
+  estrellas = [];
+  for (let i = 0; i < 120; i++) {
+    estrellas.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radio: Math.random() * 2,
+      color: Math.random() > 0.5 ? "#ff69b4" : "#ffffff",
+      velocidad: Math.random() * 0.5 + 0.2,
+      brillo: Math.random()
+    });
+  }
+}
+
+function dibujarEstrellas() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  estrellas.forEach(e => {
+    ctx.beginPath();
+    ctx.arc(e.x, e.y, e.radio, 0, Math.PI * 2);
+
+    const alpha = 0.5 + Math.sin(Date.now() * 0.002 + e.brillo) * 0.5;
+    ctx.fillStyle = e.color;
+    ctx.globalAlpha = alpha;
+
+    ctx.fill();
+    ctx.globalAlpha = 1;
+
+    e.y += e.velocidad;
+    if (e.y > canvas.height) e.y = 0;
+  });
+}
+
+function animar() {
+  dibujarEstrellas();
+  requestAnimationFrame(animar);
+}
+
+crearEstrellas();
+animar();
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  crearEstrellas();
+});
+
+// --- Música ---
+const music = document.getElementById("bg-music");
+const toggleMusic = document.getElementById("toggle-music");
+let playing = false;
+
+toggleMusic.addEventListener("click", () => {
+  if (!playing) {
+    music.play();
+    toggleMusic.textContent = "⏸️";
+    playing = true;
+  } else {
+    music.pause();
+    toggleMusic.textContent = "🔊";
+    playing = false;
+  }
+});
