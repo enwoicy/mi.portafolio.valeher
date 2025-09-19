@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio Blackpink Style</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Fondo de estrellas -->
+  <canvas id="estrellas"></canvas>
+
+  <!-- Botón modo oscuro -->
+  <button id="toggle-dark">🌙</button>
+
+  <!-- Botón música -->
+  <button id="toggle-music">🔊</button>
+
+  <!-- Encabezado -->
+  <header class="hero">
+    <div class="overlay">
+      <h1 id="typewriter"></h1>
+      <p class="sub">✨ Portafolio BLACKPINK 2025 ✨</p>
+      <nav>
+        <button class="btn-nav" onclick="mostrarSeccion('sobre-mi')">Sobre mí</button>
+        <button class="btn-nav" onclick="mostrarSeccion('proyectos')">Proyectos</button>
+        <button class="btn-nav" onclick="mostrarSeccion('contacto')">Contacto</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Secciones -->
+  <main>
+    <!-- Sobre mí -->
+    <section id="sobre-mi" class="seccion activa">
+      <h2>💖 Sobre mí</h2>
+      <p>
+        Mi nombre es <strong>Valeria Herrera Moreno</strong> y me considero una persona con gran interés por el arte, la tecnología y la innovación. Desde pequeña he disfrutado de actividades creativas como el dibujo, lo que me ha permitido desarrollar una sensibilidad estética que ahora aplico también en el diseño y la creación de páginas web.
+      </p>
+      <p>
+        Soy alguien curiosa y dedicada, que busca aprender constantemente y encontrar formas originales de dar vida a sus ideas. Para mí, cada proyecto representa una oportunidad de unir la creatividad con la funcionalidad, transmitiendo no solo un estilo visual atractivo, sino también una experiencia significativa para quienes interactúan con él.
+      </p>
+      <p>
+        Mi objetivo es seguir creciendo en este camino, aportando mi visión y mis habilidades en proyectos donde la creatividad, el diseño y la tecnología se encuentren para generar resultados innovadores y únicos.
+      </p>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="proyectos" class="seccion">
+      <h2>🚀 Mis Proyectos</h2>
+      <div class="galeria">
+        <div class="card tilt">
+          <img src="https://picsum.photos/300/200?pink" alt="Proyecto 1" />
+          <h3>💻 Proyecto 1</h3>
+          <p>Un diseño con energía y mucha actitud.</p>
+        </div>
+        <div class="card tilt">
+          <img src="https://picsum.photos/300/201?pink" alt="Proyecto 2" />
+          <h3>📱 Proyecto 2</h3>
+          <p>Aplicación ficticia con estilo moderno y bold.</p>
+        </div>
+        <div class="card tilt">
+          <img src="https://picsum.photos/300/202?pink" alt="Proyecto 3" />
+          <h3>🎨 Proyecto 3</h3>
+          <p>Diseño vibrante que mezcla tecnología y arte.</p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 20px;">
+        <button class="btn">Ver más</button>
+        <button class="btn-border">Galería</button>
+        <button class="btn-surprise" onclick="sorpresa()">🎁 Sorpresa</button>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="seccion contacto-seccion">
+      <h2>📩 Contáctame</h2>
+      <div class="highlight">
+        <form>
+          <input type="text" placeholder="✍️ Tu nombre" required />
+          <input type="email" placeholder="📧 Tu correo" required />
+          <textarea placeholder="💌 Tu mensaje" required></textarea>
+          <button type="submit" class="btn">Enviar 💖</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Valeria Herrera Moreno | Portafolio Blackpink 💖🖤</p>
+  </footer>
+
+  <!-- Música instrumental K-pop -->
+  <audio id="bg-music" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-energy.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
